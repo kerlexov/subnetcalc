@@ -68,9 +68,9 @@ class mreza{
         $string .= "</br>";
         $string .= sprintf("%-18s %15s %32s \n", '------------------', '---------------', '--------------------------------');
         $string .= "</br>";
-        $string .= sprintf("%-18s %15s %32s\n", 'IP Adresa:', $this->adresa, $sub1->getIPAddressBinary());
+        $string .= sprintf("%-18s %15s %32s\n", 'IP Adresa:', $this->adresa, chunk_split($sub1->getIPAddressBinary(),8));
         $string .= "</br>";
-        $string .= sprintf("%-18s %15s %32s\n", 'Subnet Maska:', $sub1->getSubnetMask(), $sub1->getSubnetMaskBinary());
+        $string .= sprintf("%-18s %15s %32s\n", 'Subnet Maska:', $sub1->getSubnetMask(), chunk_split($sub1->getSubnetMaskBinary(),8));
         $string .= "</br>";
         $string .= sprintf("%-28s %s\n", 'Raspon IP Adresa:', implode(' - ', $sub1->getIPAddressRange()));
         $string .= "</br>";
