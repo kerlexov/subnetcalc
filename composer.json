@@ -1,0 +1,6 @@
+{
+  "require": {
+    "markrogoyski/ipv4-subnet-calculator": "3.*",
+    "ext-json": "^1.5"
+  }
+}
