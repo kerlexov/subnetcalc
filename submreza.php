@@ -68,15 +68,13 @@ class mreza{
 
     public function getReport(){
         $sub1 = new IPv4\SubnetCalculator($this->adresa, $this->maska);
-        $string = sprintf("%-18s %15s %32s \n", "{$this->adresa} / {$this->maska}", 'Decimalno', 'Binarno');
+        $string = sprintf("%-18s %15s %32s \n", "{$this->adresa} / {$this->maska}", ' ', ' ');
         $string .= "</br>";
         $string .= sprintf("%-18s %15s %32s \n", "{$this->ima} / {$this->max}", ' ', ' ');
         $string .= "</br>";
-        $string .= sprintf("%-18s %15s %32s \n", '------------------', '---------------', '--------------------------------');
+        $string .= sprintf("%-18s %15s %32s\n", 'IP Adresa:', $this->adresa, "  - [ ".chunk_split($sub1->getIPAddressBinary(),8)." ]");
         $string .= "</br>";
-        $string .= sprintf("%-18s %15s %32s\n", 'IP Adresa:', $this->adresa, chunk_split($sub1->getIPAddressBinary(),8));
-        $string .= "</br>";
-        $string .= sprintf("%-18s %15s %32s\n", 'Subnet Maska:', $sub1->getSubnetMask(), chunk_split($sub1->getSubnetMaskBinary(),8));
+        $string .= sprintf("%-18s %15s %32s\n", 'Subnet Maska:', $sub1->getSubnetMask(), "  - [ ".chunk_split($sub1->getSubnetMaskBinary(),8)." ]");
         $string .= "</br>";
         $string .= sprintf("%-28s %s\n", 'Raspon IP Adresa:', implode(' - ', $sub1->getIPAddressRange()));
         $string .= "</br>";

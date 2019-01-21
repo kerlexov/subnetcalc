@@ -37,13 +37,7 @@ for($x = 0; $x < count($poljeaddr); $x++) {
 //if($maska>=$poljemaska[0]){    echo "mala maska";}
 //echo "</br>";
 //subnet maska cijele mreze
-for ($i=0;$i<=32;$i++){
-    $s=(2**$i-2)-$sumhost;
-    if($s>=0){
-        $sumhostm=32-$i;
-        break;
-    }
-}
+
 //ispis
 ?>
 <html>
@@ -54,11 +48,6 @@ for ($i=0;$i<=32;$i++){
 <div class="container">
     <div class="row">
         <table>
-            <thead>
-            <tr>
-                <th>summary adresa/maska <?php echo $adresa."/".$sumhostm; ?></th>
-            </tr>
-            </thead>
             <tbody>
 <?php
 //nulta mreza(najveca)
@@ -129,3 +118,21 @@ if($poljemaska[9]>0){
     <tr>
     <td><?php echo $sub9->getReport();}?></td>
 </tr>
+            </tbody>
+            <?php
+
+            $maxhosts=$sub0->max+$sub1->max+$sub2->max+$sub3->max+$sub4->max+$sub5->max+$sub6->max+$sub7->max+$sub8->max+$sub9->max;
+            //TODO nije dobro treba stavit stvarni broj koristenih adresa
+            for ($i=0;$i<=32;$i++){
+                $s=(2**$i-2)-$maxhosts;
+                if($s>=0){
+                    $sumhostm=32-$i;
+                    break;
+                }
+            }?>
+    <thead>
+    <tr>
+        <th>summary adresa/maska <?php echo $adresa."/".$sumhostm; ?></th>
+    </tr>
+    </thead>
+        </table>
