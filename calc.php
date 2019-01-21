@@ -45,10 +45,6 @@ for ($i=0;$i<=32;$i++){
     }
 }
 //ispis
-echo $adresa;
-echo "/";
-echo $sumhostm;
-echo $raz;
 ?>
 <html>
 <head>
@@ -60,7 +56,7 @@ echo $raz;
         <table>
             <thead>
             <tr>
-                <th>summary</th>
+                <th>summary adresa/maska <?php echo $adresa."/".$sumhostm; ?></th>
             </tr>
             </thead>
             <tbody>
