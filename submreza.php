@@ -11,14 +11,18 @@ class mreza{
     public $zadnjakorisna;
     public $broadcast;
 
+    public $ima;
+    public $max;
     public $sledeca;
     //public $jsonreport;
 
-    public function __construct($id, $adresa, $maska){
+    public function __construct($id, $adresa, $maska, $ima){
         $this->id = $id;
         $this->adresa = $adresa;
         $this->maska = $maska;
+        $this->ima=$ima;
         $sub = new \IPv4\SubnetCalculator($adresa, $maska);
+        $this->max=$sub->getNumberAddressableHosts();
         $sledeca = $sub->getMaxHostQuads();
         $sledeca[3] += 2;
         if ($sledeca[3] >= 255){
@@ -65,6 +69,8 @@ class mreza{
     public function getReport(){
         $sub1 = new IPv4\SubnetCalculator($this->adresa, $this->maska);
         $string = sprintf("%-18s %15s %32s \n", "{$this->adresa} / {$this->maska}", 'Decimalno', 'Binarno');
+        $string .= "</br>";
+        $string .= sprintf("%-18s %15s %32s \n", "{$this->ima} / {$this->max}", ' ', ' ');
         $string .= "</br>";
         $string .= sprintf("%-18s %15s %32s \n", '------------------', '---------------', '--------------------------------');
         $string .= "</br>";
