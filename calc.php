@@ -88,48 +88,48 @@ if($poljemaska[2]>0){
 if($poljemaska[3]>0){
     $sub3=new mreza(3,$sub2->getSledeca(),$poljemaska[3]);?>
    <tr>
-    <td><?php echo $sub0->getReport();}?></td>
+    <td><?php echo $sub3->getReport();}?></td>
 </tr>
 <?php
 //cet
 if($poljemaska[4]>0){
     $sub4=new mreza(4,$sub3->getSledeca(),$poljemaska[4]);?>
      <tr>
-    <td><?php echo $sub0->getReport();}?></td>
+    <td><?php echo $sub4->getReport();}?></td>
 </tr>
 <?php
 //peta
 if($poljemaska[5]>0){
     $sub5=new mreza(5,$sub4->getSledeca(),$poljemaska[5]);?>
      <tr>
-    <td><?php echo $sub0->getReport();}?></td>
+    <td><?php echo $sub5->getReport();}?></td>
 </tr>
 <?php
 //sesta
 if($poljemaska[6]>0){
     $sub6=new mreza(6,$sub5->getSledeca(),$poljemaska[6]);?>
   <tr>
-    <td><?php echo $sub0->getReport();}?></td>
+    <td><?php echo $sub6->getReport();}?></td>
 </tr>
 <?php
 //sedma
 if($poljemaska[7]>0){
     $sub7=new mreza(7,$sub6->getSledeca(),$poljemaska[7]);?>
     <tr>
-    <td><?php echo $sub0->getReport();}?></td>
+    <td><?php echo $sub7->getReport();}?></td>
 </tr>
 <?php
 //osma
 if($poljemaska[8]>0){
     $sub8=new mreza(8,$sub7->getSledeca(),$poljemaska[8]);?>
     <tr>
-    <td><?php echo $sub0->getReport();}?></td>
+    <td><?php echo $sub8->getReport();}?></td>
 </tr>
 <?php
 //deveta
 if($poljemaska[9]>0){
     $sub9=new mreza(9,$sub8->getSledeca(),$poljemaska[9]);?>
     <tr>
-    <td><?php echo $sub0->getReport();}?></td>
+    <td><?php echo $sub9->getReport();}?></td>
 </tr>
 ?>

@@ -21,7 +21,7 @@
             <!--<div class="col s3 m2">
                 <label>Subnet maska:</label> <input type="text" name="maska" value="24" required><br>
             </div>-->
-            <div class="input-field col s6 m2">
+           <!-- <div class="input-field col s6 m2">
                 <select>
                     <option value="" disabled selected>Odaberi klasu</option>
                     <option name="klasa" value="a">A</option>
@@ -29,7 +29,7 @@
                     <option name="klasa" value="c">C</option>
                 </select>
                 <label>Klase</label>
-            </div>
+            </div>-->
     </div>
     <div class="row">
     <div class="input-field col s1">Broj uredaja 1. mreze
