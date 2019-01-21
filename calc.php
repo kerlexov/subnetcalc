@@ -74,7 +74,7 @@ $sub0=new mreza(0,$adresa,$poljemaska[0]);?>
 if($poljemaska[1]>0){
     $sub1=new mreza(1,$sub0->getSledeca(),$poljemaska[1]);?>
     <tr>
-    <td><?php echo $sub0->getReport();}?></td>
+    <td><?php echo $sub1->getReport();}?></td>
 </tr>
  <?php
 //druga mreza
