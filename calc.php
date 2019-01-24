@@ -6,7 +6,12 @@ $poljeaddr=array();
 $poljemaska=array();
 //adresa i subnet maska po kojoj se sumeriziraju unesene mreze
 //$adresa='192.168.10.0';
-$adresa=$_POST["ip"];
+//$adresa=$_POST["ip"];
+$oct1=$_POST["oct1"];
+$oct2=$_POST["oct2"];
+$oct3=$_POST["oct3"];
+$oct4=$_POST["oct4"];
+$adresa=$oct1.'.'.$oct2.'.'.$oct3.'.'.$oct4;
 //$maska=24;
 //$maska=$_POST["maska"];
 $klasa=$_POST["klasa"];
@@ -19,26 +24,22 @@ rsort($poljeaddr);
 //nadi masku za odreden broj korisnika
 for($x = 0; $x < count($poljeaddr); $x++) {
 //   echo $poljeaddr[$x];
-    $sumhost+=$poljeaddr[$x];
-    for ($i=0;$i<=32;$i++){
-        $s=(2**$i-2)-$poljeaddr[$x];
-        if($s>=0){
-            $subnetm=32-$i;
-            if($subnetm>0){
-                array_push($poljemaska,$subnetm);
-                break;}
+    $sumhost += $poljeaddr[$x];
+    for ($i = 0; $i <= 32; $i++) {
+        $s = (2 ** $i - 2) - $poljeaddr[$x];
+        if ($s >= 0) {
+            $subnetm = 32 - $i;
+            if ($subnetm > 0) {
+                array_push($poljemaska, $subnetm);
+                break;
+            }
         }
     }
-//    echo "/";
-//    echo $poljemaska[$x];
-//    echo "<br>";
 }
-//maska usporedba
-//if($maska>=$poljemaska[0]){    echo "mala maska";}
-//echo "</br>";
-//subnet maska cijele mreze
-
-//ispis
+function getmaxhost($polje){
+    $max = 2**(32-($polje))-2;
+    return $max;
+}
 ?>
 <html>
 <head>
@@ -117,8 +118,7 @@ if($poljemaska[9]>0){
     $sub9=new mreza(9,$sub8->getSledeca(),$poljemaska[9],$poljeaddr[9]);?>
     <tr>
     <td><?php echo $sub9->getReport();}?></td>
-</tr>
-            </tbody>
+</tr></tbody>
             <?php
             $maxhosts=$sub0->max+$sub1->max+$sub2->max+$sub3->max+$sub4->max+$sub5->max+$sub6->max+$sub7->max+$sub8->max+$sub9->max;
             for ($i=0;$i<=32;$i++){
@@ -127,13 +127,23 @@ if($poljemaska[9]>0){
                     $sumhostm=32-$i;
                     break;
                 }
-            }?>
+            }
+
+            if($sumhost>getmaxhost($sumhostm)){
+                $error= "ERROR: broj hostova ne stane u subnet!";
+                echo "<script type='text/javascript'>alert('$error');</script>";
+                $sub=null;
+                if(!$sub){
+                    echo "<script>window.location.href = 'index.php';</script>";
+                }
+            }
+            ?>
     <thead>
-    <tr>
+       <tr>
         <th>summary adresa/maska <?php echo $adresa."/".$sumhostm; ?></th>
+           <th>broj hostova/max hostova <?php echo $sumhost."/".getmaxhost($sumhostm); ?></th>
     </tr>
-    </thead>
-        </table>
+    </thead></table>
     </div>
 </div>
 </body>
