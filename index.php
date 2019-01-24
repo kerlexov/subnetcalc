@@ -8,7 +8,8 @@
         <nav class="teal lighten-2">
             <div class="nav-wrapper">
                 <ul id="nav-mobile" class="center hide-on-med-and-down">
-                    <li><a href="">Subnet calculator</a></li>
+                    <li><a href="https://howhigh.technology">Home</a></li>
+                    <li><a href="index.php">Subnet calculator</a></li>
                     <li><a href="report.php">Ip calculator</a></li>
                 </ul>
             </div>
